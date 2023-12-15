@@ -1,3 +1,4 @@
+using System;
 namespace ProjektkUppgiftGrupp29
 {
     public class mathHandler
@@ -5,7 +6,7 @@ namespace ProjektkUppgiftGrupp29
 
         public static void calculate()
         {
-            double result;
+            double result = 0;
 
             Console.WriteLine("Tal 1");
 
@@ -17,6 +18,7 @@ namespace ProjektkUppgiftGrupp29
             Console.WriteLine("Operation");
             char Operator = Convert.ToChar(Console.ReadLine());
 
+         
 
             switch (Operator)
             {
@@ -24,45 +26,39 @@ namespace ProjektkUppgiftGrupp29
                 case '+':
                     result = num1 + num2;
 
-                      mathHandler math = new mathHandler (num1,num2,result,Operator);
-
                     break;
 
                 case '-':
                     result = num1 - num2;
 
-                    mathHandler math1 = new mathHandler(num1, num2, result, Operator);
 
                     break;
 
                 case '/':
                     result = num1 / num2;
-                    mathHandler math2 = new mathHandler(num1, num2, result, Operator);
 
                     break;
 
                 case '*':
                     result = num1 * num2;
-                    mathHandler math3 = new mathHandler(num1, num2, result, Operator);
 
                     break;
 
                 case '^':
                     result = Math.Pow(num1, num2);
-                    mathHandler math4 = new mathHandler(num1, num2, result, Operator);
 
                     break;
 
                 case '√':
                     result = Math.Sqrt(num1);
-                    mathHandler math5 = new mathHandler(num1, num2, result, Operator);
 
                     break;
 
-
             }
 
+            mathHandler math = new mathHandler(num1,num2,result,Operator);
 
+            Console.WriteLine(math.ToString());
         }
     
 
