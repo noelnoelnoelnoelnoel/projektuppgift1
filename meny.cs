@@ -9,9 +9,10 @@ namespace ProjektkUppgiftGrupp29
             
         bool doAgain = true;
             
-            while(doAgian){
+            while(doAgian)
+            {
 
-
+            
         
                     
             }
