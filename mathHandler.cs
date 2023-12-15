@@ -1,53 +1,58 @@
-﻿using System;
+using System;
 namespace ProjektkUppgiftGrupp29
 {
 	public class mathHandler
 	{
 
+		public static double calculate(double a,double b, double result, char d)
+		{
+            
 
-	 public static double (double a, double b, double c, char d)  
-	 {
+            switch (d)
+			{
+
+				case '+':
+                    result = a + b;
+                    
+					break;
+
+                case '-':
+                    result = a - b;
+
+                    break;
+
+                case '/':
+                    result = a / b;
+
+                    break;
+
+                case '*':
+                    result = a * b;
+
+                    break;
+
+                case '^':
+
+  
+
+                    break;
+
+
+
+
+
+            }
+
+
+
+
+            return a;
+		}
+
+
+
 		
-		 switch(c)
-		 {
-			case	'+':
-
-				a + b = c
-				 break;
-				 
-			case	'-':
-				 
-				a - b = c
-				 break;
-				 
-			case	'*':
-				 
-				 a * b = c
-				 break;
-				 
-			case	'/':
-				 
-				 a / b = c
-				 break;
-				 
-			case	'^':
-				 
-				 for (int i = 1; i< b.length; i++)
-				 {
-
-				a * a = c; 
-				 }
-					 
-				 break;
-		
-		 }
-
-		 return c;
-		 
-	 }
-		
-    	}
-
 	
+    }
 }
 
