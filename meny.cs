@@ -8,12 +8,20 @@ namespace ProjektkUppgiftGrupp29
         {
             
         bool doAgain = true;
-            
-            while(doAgian)
+        bool start = true;
+            while(start)
             {
 
             
-        
+
+
+
+                while(doAgain)
+                {
+
+
+                    
+                }
                     
             }
         
