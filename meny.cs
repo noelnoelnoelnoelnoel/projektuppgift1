@@ -6,8 +6,15 @@ namespace ProjektkUppgiftGrupp29
 
         public static void getMeny()
         {
-           
+            
+        bool doAgain = true;
+            
+            while(doAgian){
 
+
+        
+                    
+            }
         
         }
 
