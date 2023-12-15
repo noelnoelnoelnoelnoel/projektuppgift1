@@ -31,9 +31,13 @@ namespace ProjektkUppgiftGrupp29
 
                     break;
 
-                case '^':
+                       case '^':
+                    result = Math.Pow(a,b);
 
-  
+                    break;
+
+                case '√':
+                    result = Math.Sqrt(a);
 
                     break;
 
