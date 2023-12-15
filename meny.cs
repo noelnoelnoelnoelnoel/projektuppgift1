@@ -17,7 +17,7 @@ namespace ProjektkUppgiftGrupp29
 
             double num2 = Convert.ToInt32(Console.ReadLine());
         
-            char Operator = Convert.ToChar(Console.ReadLine);
+            char Operator = Convert.ToChar(Console.ReadLine());
 
 
                 while(doAgain)
