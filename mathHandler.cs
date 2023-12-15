@@ -6,7 +6,7 @@ namespace ProjektkUppgiftGrupp29
 
         public double result;
 
-		public double numb1 { get; set; }
+	public double numb1 { get; set; }
         public double numb2 { get; set; }
         public char operatoR { get; set; }
 
