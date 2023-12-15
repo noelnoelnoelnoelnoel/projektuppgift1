@@ -13,11 +13,17 @@ namespace ProjektkUppgiftGrupp29
             while(start)
             {
 
+            Console.WriteLine();
+                
             double num1 = Convert.ToInt32(Console.ReadLine());
 
+            Console.WriteLine(); 
             double num2 = Convert.ToInt32(Console.ReadLine());
-        
+
+            Console.WriteLine();
             char Operator = Convert.ToChar(Console.ReadLine());
+
+            
 
 
                 while(doAgain)
