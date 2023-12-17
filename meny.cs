@@ -1,7 +1,7 @@
-tem;
+using System;
 namespace ProjektkUppgiftGrupp29
 {
-    public class meny
+    public class meny 
     {
 
 
@@ -11,25 +11,35 @@ namespace ProjektkUppgiftGrupp29
             bool doAgain = true;
             bool start = true;
 
-          
+            List<mathHandler> tal = new List<mathHandler>();
+
+
+            
+
+
+
 
             while (start)
             {
-                mathHandler.calculate();
+                doAgain = true;
 
-                Console.WriteLine();
+                tal.Add(mathHandler.calculate());
 
+                Console.WriteLine(tal[0].ToString()); 
 
                 
-
-
 
                 while (doAgain)
                 {
 
+                    tal.Add(mathHandler.continoue(tal[0]));
+
+                    Console.WriteLine(tal[1].ToString());
 
 
+                    doAgain = false;
                 }
+
 
             }
 
