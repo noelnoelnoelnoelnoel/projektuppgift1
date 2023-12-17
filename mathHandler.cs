@@ -1,4 +1,3 @@
-using System;
 namespace ProjektkUppgiftGrupp29
 {
     public class mathHandler
@@ -10,7 +9,7 @@ namespace ProjektkUppgiftGrupp29
 
             Console.WriteLine("Tal 1");
 
-23
+
                 double num1 = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("tal 2");
@@ -62,6 +61,7 @@ namespace ProjektkUppgiftGrupp29
 
             }
 
+   
             mathHandler math1 = new mathHandler(num1, num2, result, Operator);
 
 
@@ -73,11 +73,13 @@ namespace ProjektkUppgiftGrupp29
 
         public static mathHandler continoue(mathHandler b)
         {
-            double resultt = 0;
+            double result = 0;
 
             Console.WriteLine("Tal 1");
 
             double num2 = Convert.ToInt32(Console.ReadLine());
+
+            double num1 = b.result;
 
             Console.WriteLine("Operation");
             char Operator = Convert.ToChar(Console.ReadLine());
@@ -87,12 +89,12 @@ namespace ProjektkUppgiftGrupp29
             {
 
                 case '+':
-                    resultt = b.result + num2;
+                    result = num1 + num2;
 
                     break;
 
                 case '-':
-                    resultt = b.result - num2;
+                    result = num1 - num2;
 
 
                     break;
@@ -100,30 +102,32 @@ namespace ProjektkUppgiftGrupp29
                 case '/':
 
 
-                    resultt = b.result / num2;
+                    result = num1 / num2;
 
 
                     break;
 
                 case '*':
 
-                    resultt = b.result * num2;
+                    result = num1 * num2;
 
                     break;
 
                 case '^':
-                    resultt = Math.Pow(b.result, num2);
+                    result = Math.Pow(num1, num2);
 
                     break;
 
                 case '√':
-                    resultt = Math.Sqrt(b.result);
+                    result = Math.Sqrt(num1);
 
                     break;
 
             }
 
-            mathHandler math2 = new mathHandler(resultt, num2, Operator);
+            mathHandler math2 = new mathHandler(num1,num2,result, Operator);
+
+
             return math2;
 
         }
@@ -149,38 +153,36 @@ namespace ProjektkUppgiftGrupp29
 
 
         }
-        public mathHandler(double a, double b, char c)
+       
+
+        public  override string ToString()
         {
 
-
-            this.num2 = a;
-            this.result = b;
-            this.operatoR = c;
+            return string.Format(" Resultat: {0} \n {1} {2} {3} = {0} ", result,num1,operatoR,num2.ToString());
 
 
         }
 
-        public override string ToString()
-        {
-            return string.Format($" Resultat: {result} \n {num1} {operatoR} {num2} = {result} ".ToString());
+        
 
+        public  static void SaveToFile() { 
+        
+            try
+            {
+                string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string filePath = Path.Combine(folderPath, ".txt");
+
+                // Sparar beräkningen i filen, använda AppendText om du vill lägga till fler beräkningar i samma fil
+                File.AppendText(filePath);
+                Console.WriteLine("Beräkningen har sparats i calculations.txt.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Det uppstod ett fel vid sparande till fil: {ex.Message}");
+            }
         }
-
-         private void SaveToFile()
- {
-     try
-     {
-         string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-         string filePath = Path.Combine(folderPath, "calculations.txt");
-
-         // Sparar beräkningen i filen, använda AppendText om du vill lägga till fler beräkningar i samma fil
-         File.WriteAllText(filePath, ToString());
-         Console.WriteLine("Beräkningen har sparats i calculations.txt.");
-     }
-     catch (Exception ex)
-     {
-         Console.WriteLine($"Det uppstod ett fel vid sparande till fil: {ex.Message}");
-     }
- }
     }
 }
+
+     
+
