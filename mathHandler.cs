@@ -1,95 +1,47 @@
-using System;
-namespace ProjektkUppgiftGrupp29
-{
-    public class mathHandler
+
+       public class meny 
     {
 
-        public static void calculate()
+
+        public static void getMeny()
         {
-            double result = 0;
 
-            Console.WriteLine("Tal 1");
+            bool doAgain = true;
+            bool start = true;
 
-            double num1 = Convert.ToInt32(Console.ReadLine());
+            List<mathHandler> tal = new List<mathHandler>();
 
-            Console.WriteLine("tal 2");
-            double num2 = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Operation");
-            char Operator = Convert.ToChar(Console.ReadLine());
+            
 
-         
 
-            switch (Operator)
+
+
+            while (start)
             {
+                doAgain = true;
 
-                case '+':
-                    result = num1 + num2;
+                tal.Add(mathHandler.calculate());
 
-                    break;
+                Console.WriteLine(tal[0].ToString()); 
 
-                case '-':
-                    result = num1 - num2;
+                
+
+                while (doAgain)
+                {
+
+                    tal.Add(mathHandler.continoue(tal[0]));
+
+                    Console.WriteLine(tal[1].ToString());
 
 
-                    break;
+                    doAgain = false;
+                }
 
-                case '/':
-                    result = num1 / num2;
-
-                    break;
-
-                case '*':
-                    result = num1 * num2;
-
-                    break;
-
-                case '^':
-                    result = Math.Pow(num1, num2);
-
-                    break;
-
-                case '√':
-                    result = Math.Sqrt(num1);
-
-                    break;
 
             }
 
-            mathHandler math = new mathHandler(num1,num2,result,Operator);
-
-            Console.WriteLine(math.ToString());
-        }
-    
-
-
-        public  double num1 {get; set;}
-        public  double num2 { get; set; }
-        public  double result{ get; set; }
-        public  char operatoR { get; set; }
-
-        public mathHandler(double a,double b,double c, char d)
-        {
-
-            this.num1 = a;
-            this.num2 = b;
-            this.result = c;
-            this.operatoR = d;
-
-
 
         }
-
-
-
-        public override string ToString()
-        {
-            return string.Format($" Resultat: {result} \n {num1} {operatoR} {num2} = {result} ".ToString());
-        }
-
-
-
-
     }
 }
-
