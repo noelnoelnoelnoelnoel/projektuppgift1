@@ -166,5 +166,21 @@ namespace ProjektkUppgiftGrupp29
 
         }
 
+         private void SaveToFile()
+ {
+     try
+     {
+         string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+         string filePath = Path.Combine(folderPath, "calculations.txt");
+
+         // Sparar beräkningen i filen, använda AppendText om du vill lägga till fler beräkningar i samma fil
+         File.WriteAllText(filePath, ToString());
+         Console.WriteLine("Beräkningen har sparats i calculations.txt.");
+     }
+     catch (Exception ex)
+     {
+         Console.WriteLine($"Det uppstod ett fel vid sparande till fil: {ex.Message}");
+     }
+ }
     }
 }
