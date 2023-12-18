@@ -13,11 +13,13 @@ namespace GIK299_Grupp_29__Projekt
             while (start)
             {
                 int counter = 0;
+                int counterR = 0;
 
 
                 tal.Add(mathHandler.calculate());
 
-                Console.WriteLine(tal[counter].ToString());
+                Console.WriteLine(tal[counterR].ToString());
+                counterR++;
 
                 Console.WriteLine(" F = forsätt beräkning, valfri = ny beräkning ");
 
@@ -32,14 +34,21 @@ namespace GIK299_Grupp_29__Projekt
                     for (int i = 0; i <100; i++)
                     {
 
+                    
+
                         tal.Add(mathHandler.continoue(tal[i]));
 
-                        Console.WriteLine(tal[i].ToString());
-                                          
+                        Console.WriteLine(tal[counter].ToString());
+                        counter++;
+
+
+                       
+
+                        
 
                     }
 
-                    counter++;
+                   
                 }
             }
         }
