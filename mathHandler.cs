@@ -1,54 +1,142 @@
 using System;
 namespace GIK299_Grupp_29__Projekt
 {
-    public class Meny
+    public class mathHandler
     {
-        public static void getMeny()
+        public static mathHandler calculate()
         {
-            bool doAgain = false;
-            bool start = true;
-            int counterr = 0; // räknar plats i listan
-            int counter;   // räknar plats av utskrift i listan
+            double result = 0;
+
+            Console.WriteLine("Tal");
+            double num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Operation:  +  -  *  /  ^   √  ");
+            char Operator = Convert.ToChar(Console.ReadLine());
+
+            Console.WriteLine("tal 2");
+            double num2 = Convert.ToInt32(Console.ReadLine());
 
 
 
-            List<mathHandler> tal = new List<mathHandler>();
-
-            while (start)
+            switch (Operator)
             {
+                case '+':
+                    result = num1 + num2;
+                    break;
 
-                tal.Add(mathHandler.calculate());
+                case '-':
+                    result = num1 - num2;
+                    break;
 
-                Console.WriteLine(tal[counterr].ToString());
+                case '/':
+                    result = num1 / num2;
+                    break;
 
-                counterr++; 
+                case '*':
+                    result = num1 * num2;
+                    break;
 
-                counter = counterr - 1;  // påbörja uträkning från senaste utskrift i (A)
+                case '^':
+                    result = Math.Pow(num1, num2);
+                    break;
 
-                Console.WriteLine("Vill du fortsätta på beräkningen  Y/N");
+                case '√':
+                    result = Math.Sqrt(num1);
+                    break;
+            }
 
-                string answer = Console.ReadLine().ToUpper();
+            mathHandler math1 = new mathHandler(num1, num2, result, Operator);
+            math1.SaveToFile(); // Lägger till SaveToFile för att spara beräkningen i filen
+            return math1;
+        }
 
-                if (answer == "Y") { doAgain = true; } else { doAgain = false; }
+        public static mathHandler continoue(mathHandler b)
+        {
+            double result = 0;
 
-                while (doAgain)
+            Console.WriteLine("Operator   +  -  *  /  ^   √   ");
+
+            char Operator = Convert.ToChar(Console.ReadLine());
+
+            Console.WriteLine("Tal");
+
+            double num2 = Convert.ToInt32(Console.ReadLine());
+
+            double num1 = b.result;
+
+
+
+            switch (Operator)
+            {
+                case '+':
+                    result = num1 + num2;
+                    break;
+
+                case '-':
+                    result = num1 - num2;
+                    break;
+
+                case '/':
+                    result = num1 / num2;
+                    break;
+
+                case '*':
+                    result = num1 * num2;
+                    break;
+
+                case '^':
+                    result = Math.Pow(num1, num2);
+                    break;
+
+                case '√':
+                    result = Math.Sqrt(num1);
+                    break;
+            }
+
+            mathHandler math2 = new mathHandler(num1, num2, result, Operator);
+            math2.SaveToFile(); // Lägger till SaveToFile för att spara beräkningen i filen
+            return math2;
+        }
+
+        public double num1 { get; set; }
+        public double num2 { get; set; }
+        public double result { get; set; }
+        public char operatoR { get; set; }
+       
+
+        public mathHandler(double a, double b, double c, char d)
+        {
+            this.num1 = a;
+            this.num2 = b;
+            this.result = c;
+            this.operatoR = d;
+        }
+
+        public override string ToString()
+        {
+            return string.Format(" --------------------\n Resultat: {0} \n {1} {2} {3} = {0} \n -------------------- ", result, num1, operatoR, num2.ToString());
+        }
+
+        public void SaveToFile()
+        {
+            try
+            {
+                string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string filePath = Path.Combine(folderPath, "calculations.txt");
+
+                // Använd StreamWriter för att skriva till filen
+                using (StreamWriter sw = File.AppendText(filePath))
                 {
-
-
-
-                    tal.Add(mathHandler.continoue(tal[counter]));
-
-                    Console.WriteLine(tal[counter + 1].ToString()); // (A)
-                    counter++;
-
-                    Console.WriteLine("Fortsätta Y/N");
-                    string answerr = Console.ReadLine().ToUpper();
-
-                    if (answerr == "N") { doAgain = false; } else { doAgain = true; }
+                    sw.WriteLine($"Beräkningen: {DateTime.Now} - {this}");
                 }
 
-
+                Console.WriteLine("Beräkningen har sparats i calculations.txt.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Det uppstod ett fel vid sparande till fil: {ex.Message}");
             }
         }
     }
 }
+
