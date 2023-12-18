@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using ProjektkUppgiftGrupp29;
 
-namespace Miniräknare
+using System;
+namespace GIK299_Grupp_29__Projekt
 {
     public class meny
     {
@@ -15,6 +16,8 @@ namespace Miniräknare
 
             while (start)
             {
+                int counter = 1;
+
                 doAgain = true;
 
                 tal.Add(mathHandler.calculate());
@@ -23,11 +26,23 @@ namespace Miniräknare
 
                 while (doAgain)
                 {
-                    tal.Add(mathHandler.continoue(tal[0]));
 
-                    Console.WriteLine(tal[1].ToString());
+                    for (int i = 0; i <counter; i++)
+                    {
 
-                    doAgain = false;
+                        Console.WriteLine("Avslutning skriv X, fortsättning skriv in valfri bokstav");
+                        string exit = Console.ReadLine();
+
+                        tal.Add(mathHandler.continoue(tal[i]));
+
+                        Console.WriteLine(tal[counter].ToString());
+                        counter++;
+
+                        
+
+                        if (exit == "X"){ doAgain = false; }
+                    }
+
                 }
             }
         }
