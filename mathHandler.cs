@@ -1,7 +1,5 @@
 using System;
-using System.IO;
-
-namespace ProjektkUppgiftGrupp29
+namespace GIK299_Grupp_29__Projekt
 {
     public class mathHandler
     {
@@ -9,14 +7,16 @@ namespace ProjektkUppgiftGrupp29
         {
             double result = 0;
 
-            Console.WriteLine("Tal 1");
-            double num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Tal");
+           double num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Operation:  +  -  *  /  ^   √  ");
+            char Operator = Convert.ToChar(Console.ReadLine());
 
             Console.WriteLine("tal 2");
             double num2 = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Operation");
-            char Operator = Convert.ToChar(Console.ReadLine());
+     
 
             switch (Operator)
             {
@@ -54,13 +54,17 @@ namespace ProjektkUppgiftGrupp29
         {
             double result = 0;
 
-            Console.WriteLine("Tal 1");
+            Console.WriteLine("Operator   +  -  *  /  ^   √   ");
+
+            char Operator = Convert.ToChar(Console.ReadLine());
+
+            Console.WriteLine("Tal");
+
             double num2 = Convert.ToInt32(Console.ReadLine());
 
             double num1 = b.result;
 
-            Console.WriteLine("Operation");
-            char Operator = Convert.ToChar(Console.ReadLine());
+           
 
             switch (Operator)
             {
@@ -109,7 +113,7 @@ namespace ProjektkUppgiftGrupp29
 
         public override string ToString()
         {
-            return string.Format(" Resultat: {0} \n {1} {2} {3} = {0} ", result, num1, operatoR, num2.ToString());
+            return string.Format(" --------------------\n Resultat: {0} \n {1} {2} {3} = {0} \n -------------------- ", result, num1, operatoR, num2.ToString());
         }
 
         public void SaveToFile()
