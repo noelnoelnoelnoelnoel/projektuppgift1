@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using ProjektkUppgiftGrupp29;
-
-using System;
 namespace GIK299_Grupp_29__Projekt
 {
     public class meny
@@ -16,35 +12,37 @@ namespace GIK299_Grupp_29__Projekt
 
             while (start)
             {
-                int counter = 1;
+                int counter = 0;
 
-                doAgain = true;
 
                 tal.Add(mathHandler.calculate());
 
-                Console.WriteLine(tal[0].ToString());
+                Console.WriteLine(tal[counter].ToString());
+
+                Console.WriteLine(" F = forsätt beräkning, valfri = ny beräkning ");
+
+                string answer = Console.ReadLine();
+
+                if (answer == "F") { doAgain = true; } else { doAgain = false; }
+
 
                 while (doAgain)
                 {
 
-                    for (int i = 0; i <counter; i++)
+                    for (int i = 0; i <100; i++)
                     {
-
-                        Console.WriteLine("Avslutning skriv X, fortsättning skriv in valfri bokstav");
-                        string exit = Console.ReadLine();
 
                         tal.Add(mathHandler.continoue(tal[i]));
 
-                        Console.WriteLine(tal[counter].ToString());
-                        counter++;
+                        Console.WriteLine(tal[i].ToString());
+                                          
 
-                        
-
-                        if (exit == "X"){ doAgain = false; }
                     }
 
+                    counter++;
                 }
             }
         }
     }
 }
+
