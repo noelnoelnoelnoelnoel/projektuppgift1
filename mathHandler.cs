@@ -5,7 +5,7 @@ namespace GIK299_Grupp_29__Projekt
     {
         public static mathHandler calculate()
         {
-            double result = 0;
+            double[] result = { 0 ,0};
 
             Console.WriteLine("Tal");
             double num1 = Convert.ToInt32(Console.ReadLine());
@@ -21,27 +21,30 @@ namespace GIK299_Grupp_29__Projekt
             switch (Operator)
             {
                 case '+':
-                    result = num1 + num2;
+                    result[0] = num1 + num2;
                     break;
 
                 case '-':
-                    result = num1 - num2;
+                    result[0]= num1 - num2;
                     break;
 
                 case '/':
-                    result = num1 / num2;
+                    result[0] = num1 / num2;
+                    result[1] = num1 % num2;
+
+                       
                     break;
 
                 case '*':
-                    result = num1 * num2;
+                    result[0] = num1 * num2;
                     break;
 
                 case '^':
-                    result = Math.Pow(num1, num2);
+                    result[0]= Math.Pow(num1, num2);
                     break;
 
                 case '√':
-                    result = Math.Sqrt(num1);
+                    result[0] = Math.Sqrt(num1);
                     break;
             }
 
@@ -52,7 +55,7 @@ namespace GIK299_Grupp_29__Projekt
 
         public static mathHandler continoue(mathHandler b)
         {
-            double result = 0;
+            double[] result = { 0, 0 };
 
             Console.WriteLine("Operator   +  -  *  /  ^   √   ");
 
@@ -62,34 +65,37 @@ namespace GIK299_Grupp_29__Projekt
 
             double num2 = Convert.ToInt32(Console.ReadLine());
 
-            double num1 = b.result;
+            double num1 = b.result[0];
 
 
 
             switch (Operator)
             {
                 case '+':
-                    result = num1 + num2;
+                    result[0] = num1 + num2;
                     break;
 
                 case '-':
-                    result = num1 - num2;
+                    result[0] = num1 - num2;
                     break;
 
                 case '/':
-                    result = num1 / num2;
+                    result[0] = num1 / num2;
+                    result[1] = num1 % num2;
+
+
                     break;
 
                 case '*':
-                    result = num1 * num2;
+                    result[0] = num1 * num2;
                     break;
 
                 case '^':
-                    result = Math.Pow(num1, num2);
+                    result[0] = Math.Pow(num1, num2);
                     break;
 
                 case '√':
-                    result = Math.Sqrt(num1);
+                    result[0] = Math.Sqrt(num1);
                     break;
             }
 
@@ -100,11 +106,11 @@ namespace GIK299_Grupp_29__Projekt
 
         public double num1 { get; set; }
         public double num2 { get; set; }
-        public double result { get; set; }
+        public double[] result { get; set; }
         public char operatoR { get; set; }
        
 
-        public mathHandler(double a, double b, double c, char d)
+        public mathHandler(double a, double b, double [] c, char d)
         {
             this.num1 = a;
             this.num2 = b;
@@ -114,7 +120,20 @@ namespace GIK299_Grupp_29__Projekt
 
         public override string ToString()
         {
-            return string.Format(" --------------------\n Resultat: {0} \n {1} {2} {3} = {0} \n -------------------- ", result, num1, operatoR, num2.ToString());
+        
+             string a =  string.Format(" --------------------\n Resultat: {0} rest {4} \n {1} {2} {3} = {0} rest {4} \n -------------------- ", result[0], num1, operatoR, num2, result[1].ToString());
+
+             string b = string.Format(" --------------------\n Resultat: {0} \n {1} {2} {3} = {0} \n -------------------- ",  result[0] , num1, operatoR, num2.ToString());
+
+            if (result[1] > 0)
+            {
+                return a;
+            }
+
+            else 
+            {
+                return b;
+            }
         }
 
         public void SaveToFile()
@@ -139,4 +158,6 @@ namespace GIK299_Grupp_29__Projekt
         }
     }
 }
+
+
 
