@@ -62,6 +62,7 @@ namespace GIK299_Grupp_29__Projekt
                     break;
             }
 
+            round(result[0]);
             mathHandler math1 = new mathHandler(num1, num2, result, Operator);
             math1.SaveToFile(); // Lägger till SaveToFile för att spara beräkningen i filen
             return math1;
@@ -125,6 +126,8 @@ namespace GIK299_Grupp_29__Projekt
                     break;
             }
 
+            round(result[0]);
+
             mathHandler math2 = new mathHandler(num1, num2, result, Operator);
             math2.SaveToFile(); // Lägger till SaveToFile för att spara beräkningen i filen
             return math2;
@@ -147,6 +150,7 @@ namespace GIK299_Grupp_29__Projekt
         public override string ToString()
         {
 
+           
             string a = string.Format($" --------------------\n Resultat: {result[0]} \n heltals division {result[2]} rest {result[1]} \n {num1} {operatoR} {num2} = {result[0]} \n heltals division {result[2]} , {result[1]} \n -------------------- ".ToString());
             string b = string.Format(" --------------------\n Resultat: {0} \n {2}{1} = {0} \n -------------------- ", result[0], num1, operatoR.ToString());
             string c = string.Format($"--------------------\n Resultat = {result[0]} \n {num1} {operatoR} {num2} = {result[0]} \n -------------------- ");
@@ -165,6 +169,14 @@ namespace GIK299_Grupp_29__Projekt
             {
                 return c;
             }
+        }
+
+        public static double round(double a)
+        {
+            Math.Round(a,2);
+
+
+            return a;
         }
 
         public void SaveToFile()
