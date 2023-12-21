@@ -67,7 +67,7 @@ namespace GIK299_Grupp_29__Projekt
 
             double num2 = Convert.ToInt32(Console.ReadLine());
 
-            double num1 = b.result[0];
+            double num1 = b.result[0];  // avrunda detta till 2 decimaler
 
 
 
@@ -84,7 +84,7 @@ namespace GIK299_Grupp_29__Projekt
                 case '/':
                     result[0] = num1 / num2;
                     result[1] = num1 % num2;
-                    result[2] = Math.Floor(result[0]);
+                    result[2] = Math.Floor(result[0]); 
 
 
                     break;
