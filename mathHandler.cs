@@ -5,7 +5,7 @@ namespace GIK299_Grupp_29__Projekt
     {
         public static mathHandler calculate()
         {
-            double[] result = { 0 ,0};
+            double[] result = { 0, 0, 0 };
 
             Console.WriteLine("Tal");
             double num1 = Convert.ToInt32(Console.ReadLine());
@@ -25,14 +25,16 @@ namespace GIK299_Grupp_29__Projekt
                     break;
 
                 case '-':
-                    result[0]= num1 - num2;
+                    result[0] = num1 - num2;
                     break;
 
                 case '/':
                     result[0] = num1 / num2;
                     result[1] = num1 % num2;
+                    result[2] = Math.Floor(result[0]);
 
-                       
+
+
                     break;
 
                 case '*':
@@ -40,7 +42,7 @@ namespace GIK299_Grupp_29__Projekt
                     break;
 
                 case '^':
-                    result[0]= Math.Pow(num1, num2);
+                    result[0] = Math.Pow(num1, num2);
                     break;
 
                 case '√':
@@ -55,7 +57,7 @@ namespace GIK299_Grupp_29__Projekt
 
         public static mathHandler continoue(mathHandler b)
         {
-            double[] result = { 0, 0 };
+            double[] result = { 0, 0, 0 };
 
             Console.WriteLine("Operator   +  -  *  /  ^   √   ");
 
@@ -82,6 +84,7 @@ namespace GIK299_Grupp_29__Projekt
                 case '/':
                     result[0] = num1 / num2;
                     result[1] = num1 % num2;
+                    result[2] = Math.Floor(result[0]);
 
 
                     break;
@@ -108,9 +111,9 @@ namespace GIK299_Grupp_29__Projekt
         public double num2 { get; set; }
         public double[] result { get; set; }
         public char operatoR { get; set; }
-       
 
-        public mathHandler(double a, double b, double [] c, char d)
+
+        public mathHandler(double a, double b, double[] c, char d)
         {
             this.num1 = a;
             this.num2 = b;
@@ -120,19 +123,24 @@ namespace GIK299_Grupp_29__Projekt
 
         public override string ToString()
         {
-        
-             string a =  string.Format(" --------------------\n Resultat: {0} rest {4} \n {1} {2} {3} = {0} rest {4} \n -------------------- ", result[0], num1, operatoR, num2, result[1].ToString());
 
-             string b = string.Format(" --------------------\n Resultat: {0} \n {1} {2} {3} = {0} \n -------------------- ",  result[0] , num1, operatoR, num2.ToString());
+            string a = string.Format($" --------------------\n Resultat: {result[0]} \n heltals division {result[2]} rest {result[1]} \n {num1} {operatoR} {num2} = {result[0]} \n heltals division {result[2]} , {result[1]} \n -------------------- ".ToString());
+            string b = string.Format(" --------------------\n Resultat: {0} \n {1} {2} {3} = {0} \n -------------------- ", result[0], num1, operatoR, num2.ToString());
+            string c = string.Format($"--------------------\n Resultat = {result[0]} \n {num1} {operatoR} {num2} = {result[0]} \n -------------------- ");
 
-            if (result[1] > 0)
+            if (result[1] != 0)
             {
                 return a;
             }
 
-            else 
+            else if (operatoR == '/' && result[1] == 0)
             {
                 return b;
+            }
+
+            else
+            {
+                return c;
             }
         }
 
@@ -158,6 +166,4 @@ namespace GIK299_Grupp_29__Projekt
         }
     }
 }
-
-
 
