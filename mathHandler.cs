@@ -7,14 +7,26 @@ namespace GIK299_Grupp_29__Projekt
         {
             double[] result = { 0, 0, 0 };
 
-            Console.WriteLine("Tal");
-            double num1 = Convert.ToInt32(Console.ReadLine());
+            int num2; 
+                Console.WriteLine("Tal");
+                double num1 = Convert.ToInt32(Console.ReadLine());
+           
 
-            Console.WriteLine("Operation:  +  -  *  /  ^   √  ");
-            char Operator = Convert.ToChar(Console.ReadLine());
+                Console.WriteLine("Operation:  +  -  *  /  ^   √  ");
+                char Operator = Convert.ToChar(Console.ReadLine());
 
-            Console.WriteLine("tal 2");
-            double num2 = Convert.ToInt32(Console.ReadLine());
+
+            if (Operator != '√')
+            {
+                Console.WriteLine("tal 2");
+                 num2 = Convert.ToInt32(Console.ReadLine());
+            }
+
+            else
+            {
+                num2 = 0;
+                
+            }
 
 
 
@@ -58,6 +70,7 @@ namespace GIK299_Grupp_29__Projekt
         public static mathHandler continoue(mathHandler b)
         {
             double[] result = { 0, 0, 0 };
+            double num2;
 
             Console.WriteLine("Operator   +  -  *  /  ^   √   ");
 
@@ -65,9 +78,19 @@ namespace GIK299_Grupp_29__Projekt
 
             Console.WriteLine("Tal");
 
-            double num2 = Convert.ToInt32(Console.ReadLine());
+            if (Operator != '√')
+            {
+                Console.WriteLine("tal 2");
+                num2 = Convert.ToInt32(Console.ReadLine());
+            }
 
-            double num1 = b.result[0];  // avrunda detta till 2 decimaler
+            else
+            {
+                num2 = 0;
+
+            }
+
+            double num1 = b.result[0];
 
 
 
@@ -84,7 +107,7 @@ namespace GIK299_Grupp_29__Projekt
                 case '/':
                     result[0] = num1 / num2;
                     result[1] = num1 % num2;
-                    result[2] = Math.Floor(result[0]); 
+                    result[2] = Math.Floor(result[0]);
 
 
                     break;
@@ -125,7 +148,7 @@ namespace GIK299_Grupp_29__Projekt
         {
 
             string a = string.Format($" --------------------\n Resultat: {result[0]} \n heltals division {result[2]} rest {result[1]} \n {num1} {operatoR} {num2} = {result[0]} \n heltals division {result[2]} , {result[1]} \n -------------------- ".ToString());
-            string b = string.Format(" --------------------\n Resultat: {0} \n {1} {2} {3} = {0} \n -------------------- ", result[0], num1, operatoR, num2.ToString());
+            string b = string.Format(" --------------------\n Resultat: {0} \n {2}{1} = {0} \n -------------------- ", result[0], num1, operatoR.ToString());
             string c = string.Format($"--------------------\n Resultat = {result[0]} \n {num1} {operatoR} {num2} = {result[0]} \n -------------------- ");
 
             if (result[1] != 0)
@@ -133,7 +156,7 @@ namespace GIK299_Grupp_29__Projekt
                 return a;
             }
 
-            else if (operatoR == '/' && result[1] == 0)
+            else if (operatoR == '√')
             {
                 return b;
             }
