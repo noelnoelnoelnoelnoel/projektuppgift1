@@ -3,32 +3,33 @@ namespace GIK299_Grupp_29__Projekt
 {
     public class mathHandler
     {
+
+        
         public static mathHandler calculate()
         {
             double[] result = { 0, 0, 0 };
 
-            int num2; 
-                Console.WriteLine("Tal");
-                double num1 = Convert.ToInt32(Console.ReadLine());
-           
+            int num2;
 
-                Console.WriteLine("Operation:  +  -  *  /  ^   √  ");
-                char Operator = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine("Tal");
+            double num1 = Convert.ToInt32(Console.ReadLine()); // fixa
 
 
-            if (Operator != '√')
+            Console.WriteLine("Operation:  +  -  *  /  ^   √  ");
+            char Operator = Convert.ToChar(Console.ReadLine()); // fixa
+
+
+            if (Operator != '√') // 1 siffra behövs bara för kvadratrot
             {
                 Console.WriteLine("tal 2");
-                 num2 = Convert.ToInt32(Console.ReadLine());
+                num2 = Convert.ToInt32(Console.ReadLine()); // fixa
             }
 
             else
             {
                 num2 = 0;
-                
+
             }
-
-
 
             switch (Operator)
             {
@@ -44,9 +45,6 @@ namespace GIK299_Grupp_29__Projekt
                     result[0] = num1 / num2;
                     result[1] = num1 % num2;
                     result[2] = Math.Floor(result[0]);
-
-
-
                     break;
 
                 case '*':
@@ -75,14 +73,14 @@ namespace GIK299_Grupp_29__Projekt
 
             Console.WriteLine("Operator   +  -  *  /  ^   √   ");
 
-            char Operator = Convert.ToChar(Console.ReadLine());
+            char Operator = Convert.ToChar(Console.ReadLine());  // fixa
 
             Console.WriteLine("Tal");
 
             if (Operator != '√')
             {
-                Console.WriteLine("tal 2");
-                num2 = Convert.ToInt32(Console.ReadLine());
+                
+                num2 = Convert.ToInt32(Console.ReadLine());  // fixa
             }
 
             else
@@ -150,7 +148,7 @@ namespace GIK299_Grupp_29__Projekt
         public override string ToString()
         {
 
-           
+
             string a = string.Format($" --------------------\n Resultat: {result[0]} \n heltals division {result[2]} rest {result[1]} \n {num1} {operatoR} {num2} = {result[0]} \n heltals division {result[2]} , {result[1]} \n -------------------- ".ToString());
             string b = string.Format(" --------------------\n Resultat: {0} \n {2}{1} = {0} \n -------------------- ", result[0], num1, operatoR.ToString());
             string c = string.Format($"--------------------\n Resultat = {result[0]} \n {num1} {operatoR} {num2} = {result[0]} \n -------------------- ");
@@ -173,9 +171,7 @@ namespace GIK299_Grupp_29__Projekt
 
         public static double round(double a)
         {
-            Math.Round(a,2);
-
-
+            Math.Round(a, 2);
             return a;
         }
 
@@ -201,4 +197,5 @@ namespace GIK299_Grupp_29__Projekt
         }
     }
 }
+
 
