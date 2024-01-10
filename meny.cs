@@ -9,29 +9,18 @@ namespace GIK299_Grupp_29__Projekt
             bool start = true;
             int counterr = 0; // räknar plats i listan
             int counter;   // räknar plats av utskrift i listan
-            bool checkEx = true;
 
-            
+
             List<mathHandler> tal = new List<mathHandler>();
 
-            while (checkEx)
-            {
-                
+           
+
                 while (start)
                 {
 
 
+                    tal.Add(mathHandler.calculate());
 
-                    try
-                    {
-
-                        tal.Add(mathHandler.calculate());
-                    }
-                    catch (FormatException e)
-                    {
-                        Console.WriteLine("Fel format, skriv om tack");
-                        break;
-                    }
 
                     Console.WriteLine(tal[counterr].ToString());
 
@@ -43,25 +32,12 @@ namespace GIK299_Grupp_29__Projekt
 
                     string answer = Console.ReadLine().ToUpper();
 
-                    if (answer == "Y") { doAgain = true; } else if (answer == "Q") { start = false; checkEx = false; } else { doAgain = false; }
+                    if (answer == "Y") { doAgain = true; } else if (answer == "Q") { start = false;} else { doAgain = false; }
 
                     while (doAgain)
                     {
 
-
-
-                        try
-                        {
-
-                            tal.Add(mathHandler.continoue(tal[counter]));
-                        }
-                        catch (FormatException ex)
-                        {
-                            Console.WriteLine("Fel format");
-                            Console.WriteLine("Skriv om tack");
-                            tal.Add(mathHandler.continoue(tal[counter]));
-
-                        }
+                        tal.Add(mathHandler.continoue(tal[counter]));
 
                         Console.WriteLine(tal[counter + 1].ToString()); // (A)
                         counter++;
@@ -69,18 +45,18 @@ namespace GIK299_Grupp_29__Projekt
                         Console.WriteLine("Fortsätta Y/N Q för avsluta");
                         string answerr = Console.ReadLine().ToUpper();
 
-                        if (answerr == "N") { doAgain = false; } else if (answerr == "Q") { start = false; checkEx = false; doAgain = false; } else { doAgain = true; }
+                        if (answerr == "N") { doAgain = false; } else if (answerr == "Q") { start = false; doAgain = false; } else { doAgain = true; }
                     }
 
-                    break;
+                  
                 }
 
-                
-            }
+
+            
 
             Console.WriteLine("Programmet avslutas...");
-            
-            
+
+
         }
     }
 }
