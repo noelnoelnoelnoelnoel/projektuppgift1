@@ -11,7 +11,7 @@ namespace GIK299_Grupp_29__Projekt
             int counter;   // räknar plats av utskrift i listan
             bool checkEx = true;
 
-
+            
             List<mathHandler> tal = new List<mathHandler>();
 
             while (checkEx)
@@ -58,8 +58,9 @@ namespace GIK299_Grupp_29__Projekt
                         catch (FormatException ex)
                         {
                             Console.WriteLine("Fel format");
-                            Console.WriteLine("Programmet börjar om...");
-                            break;
+                            Console.WriteLine("Skriv om tack");
+                            tal.Add(mathHandler.continoue(tal[counter]));
+
                         }
 
                         Console.WriteLine(tal[counter + 1].ToString()); // (A)
@@ -71,11 +72,15 @@ namespace GIK299_Grupp_29__Projekt
                         if (answerr == "N") { doAgain = false; } else if (answerr == "Q") { start = false; checkEx = false; doAgain = false; } else { doAgain = true; }
                     }
 
+                    break;
                 }
 
+                
             }
 
             Console.WriteLine("Programmet avslutas...");
+            
+            
         }
     }
 }
